@@ -24,6 +24,10 @@ export const updateJsonData: (params: UpdateJsonDataParams) => Promise<void> = (
             const jsonData = JSON.parse(rawJsonData) as JsonDataType;
             const currentTime = getCurrentDate(true);
 
+            if(!jsonData[contact]){
+                jsonData[contact] = []
+            }
+            
             jsonData[contact].push({
                 [currentTime]: {
                     message,
